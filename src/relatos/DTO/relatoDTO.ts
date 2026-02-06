@@ -9,4 +9,8 @@ export class CreateRelatoDto {
     @IsNotEmpty()
     tema: string;
 
+    @IsString()
+    @IsNotEmpty()
+    id_User: string;
+
 }

@@ -15,5 +15,16 @@ export class CreateUserDto {
 
     @IsString()
     @MaxLength(11, { message: 'numero invalido' })
-    numero: string;
+    telefone: string;
+}
+
+export class LoginUserDto {
+
+    @IsString()
+    @IsEmail()
+    email: string;
+
+    @IsString()
+    @MinLength(6, { message: 'A senha deve ter no mínimo 6 caracteres' })
+    senha: string;
 }

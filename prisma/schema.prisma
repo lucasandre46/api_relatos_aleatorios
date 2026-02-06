@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -14,45 +13,48 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-model User {
-  id     String @id @default(uuid())
-  email  String @unique
-  senha  String
-  numero String @unique
-  nome   String
+model Users {
+  id          String        @id @default(uuid())
+  email       String        @unique
+  senha       String
+  numero      String        @unique
+  nome        String
+  relatos     Relatos[]
+  curtidas    Curtidas[]
+  comentarios Comentarios[]
 
   @@map("Users")
 }
 
-model Relato {
-  id      String @id @default(uuid())
-  texto   String @db.Text
-  tema    String
-  id_User String
-  user    User   @relation(fields: [id_User], references: [id])
+model Relatos {
+  id          String        @id @default(uuid())
+  texto       String        @db.Text
+  tema        String
+  id_User     String
+  user        Users         @relation(fields: [id_User], references: [id])
+  curtidas    Curtidas[]
+  comentarios Comentarios[]
 
   @@map("Relatos")
 }
 
-model Curtida {
-  id        String @id @default(uuid())
+model Curtidas {
+  id        String  @id @default(uuid())
   id_Relato String
   id_User   String
-  relato    Relato @relation(fields: [id_Relato], references: [id])
-  user      User   @relation(fields: [id_User], references: [id])
+  relato    Relatos @relation(fields: [id_Relato], references: [id])
+  user      Users   @relation(fields: [id_User], references: [id])
 
   @@map("Curtidas")
 }
 
-model Comentario {
-  id        String @id @default(uuid())
-  texto     String @db.Text
+model Comentarios {
+  id        String  @id @default(uuid())
+  texto     String  @db.Text
   id_User   String
   id_Relato String
-  user      User   @relation(fields: [id_User], references: [id])
-  relato    Relato @relation(fields: [id_Relato], references: [id])
+  user      Users   @relation(fields: [id_User], references: [id])
+  relato    Relatos @relation(fields: [id_Relato], references: [id])
 
   @@map("Comentarios")
 }
