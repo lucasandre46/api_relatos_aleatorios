@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id     String @id @default(uuid())
+  email  String @unique
+  senha  String
+  numero String @unique
+  nome   String
+
+  @@map("Users")
+}
+
+model Relato {
+  id      String @id @default(uuid())
+  texto   String @db.Text
+  tema    String
+  id_User String
+  user    User   @relation(fields: [id_User], references: [id])
+
+  @@map("Relatos")
+}
+
+model Curtida {
+  id        String @id @default(uuid())
+  id_Relato String
+  id_User   String
+  relato    Relato @relation(fields: [id_Relato], references: [id])
+  user      User   @relation(fields: [id_User], references: [id])
+
+  @@map("Curtidas")
+}
+
+model Comentario {
+  id        String @id @default(uuid())
+  texto     String @db.Text
+  id_User   String
+  id_Relato String
+  user      User   @relation(fields: [id_User], references: [id])
+  relato    Relato @relation(fields: [id_Relato], references: [id])
+
+  @@map("Comentarios")
+}
