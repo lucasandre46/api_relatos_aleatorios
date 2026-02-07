@@ -45,6 +45,7 @@ model Curtidas {
   relato    Relatos @relation(fields: [id_Relato], references: [id])
   user      Users   @relation(fields: [id_User], references: [id])
 
+  @@unique([id_Relato, id_User])
   @@map("Curtidas")
 }
 
