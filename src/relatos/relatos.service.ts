@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { CreateRelatoDto } from './DTO/relatoDTO';
 import { Relatos, Curtidas, Comentarios } from '@prisma/client';
-import { CreateCurtidaDto } from 'src/relatos/DTO/curtidaDto';
-import { CreateComentarioDto } from 'src/relatos/DTO/comentarioDto';
+import { CreateCurtidaDto } from '../relatos/DTO/curtidaDto';
+import { CreateComentarioDto } from '../relatos/DTO/comentarioDto';
 
 @Injectable()
 export class RelatosService {

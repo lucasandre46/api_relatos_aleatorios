@@ -2,7 +2,7 @@ import { Controller, Post, Body, Get, Param, Delete } from '@nestjs/common';
 import { RelatosService } from './relatos.service';
 import { CreateRelatoDto } from './DTO/relatoDTO';
 import { CreateCurtidaDto } from 'src/relatos/DTO/curtidaDto';
-import { CreateComentarioDto } from 'src/relatos/DTO/comentarioDto';
+import { CreateComentarioDto } from '../relatos/DTO/comentarioDto';
 
 
 @Controller('relatos')
