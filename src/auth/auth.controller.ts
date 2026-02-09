@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { CreateUserDto, LoginUserDto } from './DTO/userDto';
+import { CreateUserDto, LoginUserDto } from './dto/userDto';
 import { Body, Post, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 

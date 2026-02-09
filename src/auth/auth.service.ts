@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
-import { CreateUserDto, LoginUserDto } from './DTO/userDto';
+import { CreateUserDto, LoginUserDto } from './dto/userDto';
 import { Users } from '@prisma/client';
 
 
