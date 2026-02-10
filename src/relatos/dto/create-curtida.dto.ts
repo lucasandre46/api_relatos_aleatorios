@@ -1,4 +1,4 @@
-import { IsEmpty, IsNotEmpty, IsString, IsUUID } from 'class-validator';
+import { IsEmpty, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateCurtidaDto {
     @IsEmpty()

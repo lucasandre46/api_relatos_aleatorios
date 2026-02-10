@@ -9,12 +9,12 @@ import { CreateComentarioDto } from './dto/create-comentario.dto';
 export class RelatosController {
     constructor(private readonly relatosService: RelatosService) { }
 
-    @Post()
+    @Post('stories')
     async create(@Body() createRelatoDto: CreateRelatoDto) {
         return this.relatosService.create(createRelatoDto);
     }
 
-    @Get()
+    @Get('stories')
     async findAll() {
         return this.relatosService.findAll();
     }
