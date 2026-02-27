@@ -9,27 +9,27 @@ import { CreateComentarioDto } from './dto/create-comentario.dto';
 export class RelatosController {
     constructor(private readonly relatosService: RelatosService) { }
 
-    @Post('/stories')
+    @Post('stories')
     async create(@Body() createRelatoDto: CreateRelatoDto) {
         return this.relatosService.create(createRelatoDto);
     }
 
-    @Get('/stories')
+    @Get('stories')
     async findAll() {
         return this.relatosService.findAll();
     }
 
-    @Post('/stories/curtir/toggle')
+    @Post('curtir/toggle')
     async toggleCurtida(@Body() curtidaDto: CreateCurtidaDto) {
         return this.relatosService.toggleCurtida(curtidaDto);
     }
 
-    @Post('/stories/comentario')
+    @Post('comentario')
     async comentar(@Body() comentarioDto: CreateComentarioDto) {
         return this.relatosService.comentar(comentarioDto);
     }
 
-    @Get('/stories/:id/comentarios')
+    @Get(':id/comentarios')
     async getComments(@Param('id') id_Relato: string) {
         return this.relatosService.getComments(id_Relato);
     }
