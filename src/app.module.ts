@@ -4,10 +4,9 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { RelatosModule } from './relatos/relatos.module';
 import { PrismaService } from './prisma.service';
-import { EventsModule } from './events/events.module';
 
 @Module({
-  imports: [AuthModule, RelatosModule, EventsModule],
+  imports: [AuthModule, RelatosModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })

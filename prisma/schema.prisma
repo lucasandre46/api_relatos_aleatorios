@@ -11,7 +11,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model Users {
@@ -23,7 +22,6 @@ model Users {
   relatos     Relatos[]
   curtidas    Curtidas[]
   comentarios Comentarios[]
-  memes       Memes[]
 
   @@map("Users")
 }
@@ -60,13 +58,4 @@ model Comentarios {
   relato    Relatos @relation(fields: [id_Relato], references: [id])
 
   @@map("Comentarios")
-}
-
-model Memes {
-  id String @id @default(uuid())
-  url String
-  id_User String
-  user Users @relation(fields: [id_User], references: [id])
-
-  @@map("Memes")
 }
