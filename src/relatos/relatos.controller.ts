@@ -29,7 +29,7 @@ export class RelatosController {
         return this.relatosService.comentar(comentarioDto);
     }
 
-    @Get(':id/comentarios')
+    @Get('stories/:id/comentarios')
     async getComments(@Param('id') id_Relato: string) {
         return this.relatosService.getComments(id_Relato);
     }
