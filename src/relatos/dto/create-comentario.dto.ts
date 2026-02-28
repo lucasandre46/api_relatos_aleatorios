@@ -1,7 +1,7 @@
 import { IsEmpty, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
 export class CreateComentarioDto {
-    @IsEmpty()
+    @IsNotEmpty()
     @IsString()
     id_Relato: string;
 

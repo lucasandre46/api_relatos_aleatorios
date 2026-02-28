@@ -1,7 +1,7 @@
 import { IsEmpty, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateCurtidaDto {
-    @IsEmpty()
+    @IsNotEmpty()
     @IsString()
     id_Relato: string;
 
